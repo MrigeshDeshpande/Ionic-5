@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Employee Database </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    showCancelButton="focus"
+    animated
+  ></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let employee of employees | filter:searchTerm" >
+      <ion-label>{{employee.name}}</ion-label>
+      <ion-label>{{employee.email}}</ion-label>
+      <ion-label>{{employee.department}}</ion-label>
+      <ion-label>{{employee.phone}}</ion-label>
+      <ion-label>{{employee.position}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
