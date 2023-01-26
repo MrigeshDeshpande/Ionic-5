@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Weather App </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item>
+      <p>Today's report</p>
+      <ion-label slot="end"> {{todaydate | date: 'EEE dd MMM'}}</ion-label>
+    </ion-item>
+
+    <ion-item
+      >{{(weatherTemp.temp - 273.15).toFixed(1)}}<span>c</span>
+      <img [src]="weatherIcon" slot="end" />
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="location"> </ion-icon>
+      <span>{{cityName}}</span>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <span>Maximum Temperature</span>
+      <span slot="end">{{(weatherTemp.temp_max-273.15).toFixed(1)}}</span>
+    </ion-item>
+
+    <ion-item>
+      <span>mainimum Temperature</span>
+      <span slot="end">{{(weatherTemp.temp_min -273.15).toFixed(1)}}</span>
+    </ion-item>
+
+    <ion-item>
+      <span>Humidity</span>
+      <span slot="end">{{weatherTemp.humidity}}%</span>
+    </ion-item>
+  </ion-card>
+</ion-content>
